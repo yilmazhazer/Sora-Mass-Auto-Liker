@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Sora Auto Curtir - Modo Agressivo",
+    "description": "Nome da extensão"
+  },
+  "extDescription": {
+    "message": "Curtir automaticamente posts do Sora em velocidade máxima - Modo agressivo multi-thread",
+    "description": "Descrição da extensão"
+  }
+}

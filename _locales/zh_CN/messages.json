@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Sora 自动点赞 - 激进模式",
+    "description": "扩展名称"
+  },
+  "extDescription": {
+    "message": "以最大速度自动点赞 Sora 帖子 - 多线程激进模式",
+    "description": "扩展描述"
+  }
+}

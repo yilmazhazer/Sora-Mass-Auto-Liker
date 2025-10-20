@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Sora 자동 좋아요 - 공격 모드",
+    "description": "확장 프로그램 이름"
+  },
+  "extDescription": {
+    "message": "최대 속도로 Sora 게시물에 자동 좋아요 - 멀티스레드 공격 모드",
+    "description": "확장 프로그램 설명"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Sora 自動いいね - アグレッシブモード",
+    "description": "拡張機能名"
+  },
+  "extDescription": {
+    "message": "最高速度でSora投稿に自動いいね - マルチスレッドアグレッシブモード",
+    "description": "拡張機能の説明"
+  }
+}

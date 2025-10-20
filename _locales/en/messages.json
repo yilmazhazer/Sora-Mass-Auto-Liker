@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Sora Auto Liker - Aggressive Mode",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Automatically like Sora posts at maximum speed - Multi-threaded aggressive mode",
+    "description": "Extension description"
+  }
+}

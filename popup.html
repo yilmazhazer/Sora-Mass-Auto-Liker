@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 350px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: white;
+      margin: 0;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    h1 {
+      margin: 0 0 5px 0;
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: fire 1.5s infinite;
+    }
+
+    @keyframes fire {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; text-shadow: 0 0 10px rgba(255, 255, 0, 0.8); }
+    }
+
+    .lang-selector {
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-selector label {
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    #languageSelect {
+      flex: 1;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #languageSelect option {
+      background: #1f2937;
+      color: white;
+    }
+
+    .warning {
+      background: rgba(255, 193, 7, 0.2);
+      border: 2px solid rgba(255, 193, 7, 0.5);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 12px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .token-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .token-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .token-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ef4444;
+    }
+
+    .token-indicator.active {
+      background: #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      font-size: 11px;
+      font-family: 'Courier New', monospace;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+
+    textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .token-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .token-buttons button {
+      flex: 1;
+      padding: 8px;
+      font-size: 12px;
+    }
+
+    .status {
+      text-align: center;
+      margin-bottom: 20px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .status.active {
+      background: rgba(239, 68, 68, 0.5);
+      animation: pulse 2s infinite;
+      border: 2px solid rgba(255, 255, 0, 0.6);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    #startBtn {
+      background: #10b981;
+      color: white;
+    }
+
+    #startBtn:hover:not(:disabled) {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    #stopBtn {
+      background: #1f2937;
+      color: white;
+    }
+
+    #stopBtn:hover:not(:disabled) {
+      background: #111827;
+      transform: translateY(-2px);
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .settings {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .setting-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .setting-row:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    input[type="number"] {
+      width: 80px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .stats {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .stats-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .stats-title {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    #resetStatsBtn {
+      padding: 4px 12px;
+      font-size: 11px;
+      background: rgba(239, 68, 68, 0.6);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .log {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding: 12px;
+      max-height: 150px;
+      overflow-y: auto;
+      font-size: 12px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .log-entry {
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .log-entry:last-child {
+      border-bottom: none;
+    }
+
+    .log-entry.success {
+      color: #10b981;
+    }
+
+    .log-entry.error {
+      color: #fbbf24;
+    }
+
+    .log-entry.info {
+      color: #60a5fa;
+    }
+
+    .help-text {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .help-link {
+      color: #fbbf24;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 data-i18n="extName">🔥 Sora Auto Liker</h1>
+    <div class="subtitle" data-i18n="aggressiveMode">⚡ AGGRESSIVE MODE - MAXIMUM SPEED</div>
+    
+    <!-- Language Selector -->
+    <div class="lang-selector">
+      <label data-i18n="selectLanguage">🌍 Language:</label>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="tr">Türkçe</option>
+        <option value="zh">中文</option>
+        <option value="es">Español</option>
+        <option value="ru">Русский</option>
+        <option value="pt">Português</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="ar">العربية</option>
+        <option value="hi">हिन्दी</option>
+        <option value="nl">Nederlands</option>
+        <option value="pl">Polski</option>
+      </select>
+    </div>
+
+    <div class="warning" data-i18n="warning">⚠️ WARNING: Very aggressive! Risk of ban!</div>
+    
+    <!-- Token Section -->
+    <div class="token-section">
+      <div class="token-status">
+        <span data-i18n="bearerToken">🔑 Bearer Token:</span>
+        <div class="token-indicator" id="tokenIndicator"></div>
+      </div>
+      <textarea id="tokenInput" data-i18n-placeholder="tokenPlaceholder"></textarea>
+      <div class="token-buttons">
+        <button id="saveTokenBtn" style="background: #3b82f6;">
+          <span data-i18n="saveBtn">💾 Save</span>
+        </button>
+        <button id="autoTokenBtn" style="background: #8b5cf6;">
+          <span data-i18n="autoFindBtn">🔍 Auto Find</span>
+        </button>
+      </div>
+      <div class="help-text">
+        <span data-i18n="helpText">How to find token?</span>
+        <span class="help-link" id="helpLink" data-i18n="clickHere">Click here</span>
+      </div>
+    </div>
+
+    <div class="status" id="status" data-i18n="stopped">⏸️ Stopped</div>
+
+    <div class="controls">
+      <button id="startBtn">
+        <span data-i18n="startBtn">🔥 START</span>
+      </button>
+      <button id="stopBtn" disabled>
+        <span data-i18n="stopBtn">⏹️ STOP</span>
+      </button>
+    </div>
+
+    <div class="settings">
+      <div class="setting-row">
+        <label data-i18n="minimumDelay">Minimum Delay (ms):</label>
+        <input type="number" id="delay" min="0" max="5000" value="100" step="100">
+      </div>
+      <div class="setting-row">
+        <label data-i18n="batchSize">Batch Size:</label>
+        <input type="number" id="limit" min="1" max="20" value="20">
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stats-header">
+        <span class="stats-title" data-i18n="statistics">📊 Statistics</span>
+        <button id="resetStatsBtn">
+          <span data-i18n="resetBtn">🔄 Reset</span>
+        </button>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value" id="totalLikes">0</div>
+          <div class="stat-label" data-i18n="totalLikes">Total Likes</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="errors">0</div>
+          <div class="stat-label" data-i18n="errors">Errors</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="log" id="log">
+      <div class="log-entry info" data-i18n="ready">🚀 AGGRESSIVE MODE ready...</div>
+    </div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Sora Auto J'aime - Mode Agressif",
+    "description": "Nom de l'extension"
+  },
+  "extDescription": {
+    "message": "Aimer automatiquement les posts Sora à vitesse maximale - Mode agressif multi-thread",
+    "description": "Description de l'extension"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Sora Auto Me Gusta - Modo Agresivo",
+    "description": "Nombre de la extensión"
+  },
+  "extDescription": {
+    "message": "Me gusta automático en publicaciones de Sora a máxima velocidad - Modo agresivo multi-hilo",
+    "description": "Descripción de la extensión"
+  }
+}

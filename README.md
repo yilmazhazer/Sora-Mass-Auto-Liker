@@ -2,14 +2,6 @@
 
 Automatically like Sora posts at maximum speed with multi-threaded aggressive mode.
 
-
-
-<img width="383" height="531" alt="test" src="https://github.com/user-attachments/assets/7ddc6961-f50a-47c8-b9c1-982ceb17d554" />
-
-
-<img width="810" height="787" alt="results" src="https://github.com/user-attachments/assets/b5872060-7e89-42d3-809b-27b1d3df8f0d" />
-
-
 ## 🌍 Supported Languages (15 Languages)
 
 - 🇬🇧 English

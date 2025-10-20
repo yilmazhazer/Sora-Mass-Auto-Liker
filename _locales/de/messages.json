@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Sora Auto Like - Aggressiver Modus",
+    "description": "Name der Erweiterung"
+  },
+  "extDescription": {
+    "message": "Sora-Beiträge automatisch mit maximaler Geschwindigkeit liken - Aggressiver Multi-Thread-Modus",
+    "description": "Beschreibung der Erweiterung"
+  }
+}
